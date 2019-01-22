@@ -1,6 +1,0 @@
-# Reverse shell
-
-## PHP
-
-## Python
-

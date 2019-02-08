@@ -19,10 +19,18 @@ Scanning and time taken
 * UDP 1000 port
     nmap -sU -v 10.11.1.49
     Time taken 1 minutes
+    nmap -sT -T 4
 
 * UDP all port
     nmap -sU -v -p- 10.11.1.49
     Time taken
+
+`nmap -sV -p 80 --script=vulns 192.168.1.0/24`
+
+`nmap -sV -p 443 --script=ssl-heartbleed 192.168.1.0/24`
+
+`nmap -sT -Pn --open -n -T4 --min-parallelism 100 --min-rate 1 10.1.1.236`
+
 
 ### nmap and scripts
 
